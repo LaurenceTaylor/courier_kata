@@ -48,6 +48,11 @@ class Item
   end
 
   def additional_weight_cost
-    WEIGHT_COST_MULTIPLIER * (@weight - WEIGHT_SIZE_HASH[@category])
+    diff = calculate_weight_difference
+    diff > 0 ? WEIGHT_COST_MULTIPLIER * diff : 0
+  end
+
+  def calculate_weight_difference
+    @weight - WEIGHT_SIZE_HASH[@category]
   end
 end

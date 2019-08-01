@@ -2,8 +2,8 @@ require 'item'
 
 describe Item do
   let(:small_parcel) { Item.new(9, 9, 9, 1) }
-  let(:medium_parcel) { Item.new(49, 49, 49, 3) }
-  let(:large_parcel) { Item.new(99, 99, 99, 6) }
+  let(:medium_parcel) { Item.new(49, 49, 49, 2) }
+  let(:large_parcel) { Item.new(99, 99, 99, 5) }
   let(:xl_parcel) { Item.new(100, 100, 100, 10) }
 
   let(:overweight_small) { Item.new(9, 9, 9, 2) }
