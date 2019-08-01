@@ -3,21 +3,9 @@ class Item
   MEDIUM_SIZE = 50
   LARGE_SIZE = 100
 
-  SMALL_WEIGHT = 1
-  MEDIUM_WEIGHT = 3
-  LARGE_WEIGHT = 6
-  XL_WEIGHT = 10
+  COST_SIZE_HASH = { 'Small' => 3, 'Medium' => 8, 'Large' => 15, 'XL' => 25 }
 
-  SMALL_COST = 3
-  MEDIUM_COST = 8
-  LARGE_COST = 15
-  XL_COST = 25
-
-  COST_SIZE_HASH = { 'Small' => SMALL_COST, 'Medium' => MEDIUM_COST,
-                     'Large' => LARGE_COST, 'XL' => XL_COST }
-
-  WEIGHT_SIZE_HASH = { 'Small' => SMALL_WEIGHT, 'Medium' => MEDIUM_WEIGHT,
-                       'Large' => LARGE_WEIGHT, 'XL' => XL_WEIGHT }
+  WEIGHT_SIZE_HASH = { 'Small' => 1, 'Medium' => 3, 'Large' => 6, 'XL' => 10 }
 
   WEIGHT_COST_MULTIPLIER = 2
 
