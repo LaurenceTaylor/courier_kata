@@ -1,6 +1,10 @@
 class Item
+  SMALL = 10
+  MEDIUM = 50
+  LARGE = 100
+
   attr_reader :cost
-  
+
   def initialize(height, width, depth)
     @category = categorise([height, width, depth])
     @cost = calculate_cost
@@ -13,10 +17,11 @@ class Item
   private
 
   def categorise(dimensions)
-    return 'Small' if dimensions.all? { |dimension| dimension < 10 }
-    return 'Medium' if dimensions.all? { |dimension| dimension < 50 }
-    return 'Large' if dimensions.all? { |dimension| dimension < 100 }
-    return 'XL' if dimensions.all? { |dimension| dimension >= 100 }
+    max_side = dimensions.max
+    return 'Small' if max_side < SMALL
+    return 'Medium' if max_side < MEDIUM
+    return 'Large' if max_side < LARGE
+    return 'XL' if max_side >= LARGE
   end
 
   def calculate_cost

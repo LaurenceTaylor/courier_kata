@@ -15,8 +15,6 @@ class Order
   private
 
   def calculate_total_cost
-    total_cost = 0
-    @items.each { |item| total_cost += item.cost }
-    total_cost
+    @items.inject(0) { |sum, item| sum + item.cost }
   end
 end
