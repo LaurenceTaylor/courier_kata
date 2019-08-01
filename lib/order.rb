@@ -3,7 +3,7 @@ class Order
 
   def initialize
     @items = []
-    @is_speedy_shipping = false
+    @speedy_shipping = false
   end
 
   def add(item)
@@ -11,15 +11,18 @@ class Order
   end
 
   def add_speedy_shipping
-    @is_speedy_shipping = true
+    @speedy_shipping = true
   end
 
   def summary_array
     total_cost = calculate_total_cost
-    items = format_each_item
+    item_strings = format_each_item
 
-    return create_speedy_summary(items, total_cost) if @is_speedy_shipping
-    create_normal_summary(items, total_cost)
+    if @speedy_shipping
+      create_speedy_summary(item_strings, total_cost)
+    else
+      create_normal_summary(item_strings, total_cost)
+    end
   end
 
   private
@@ -32,13 +35,12 @@ class Order
     @items.map { |item| item.format_to_string }
   end
 
-  def create_speedy_summary(items, total_cost)
-    items << "Speedy shipping: $#{total_cost}"
-    items << "Total cost: $#{SPEEDY_MULTIPLIER * total_cost}"
-    items
+  def create_speedy_summary(items, total)
+    items << "Speedy shipping: $#{total}"
+    items << "Total cost: $#{SPEEDY_MULTIPLIER * total}"
   end
 
-  def create_normal_summary(items, total_cost)
-    items << "Total cost: $#{total_cost}"
+  def create_normal_summary(items, total)
+    items << "Total cost: $#{total}"
   end
 end
