@@ -18,11 +18,8 @@ class Order
     total_cost = calculate_total_cost
     item_strings = format_each_item
 
-    if @speedy_shipping
-      create_speedy_summary(item_strings, total_cost)
-    else
-      create_normal_summary(item_strings, total_cost)
-    end
+    return create_speedy_summary(item_strings, total_cost) if @speedy_shipping
+    create_normal_summary(item_strings, total_cost)
   end
 
   private

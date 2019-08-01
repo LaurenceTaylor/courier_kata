@@ -3,9 +3,9 @@ class Item
   MEDIUM_SIZE = 50
   LARGE_SIZE = 100
 
-  COST_SIZE_HASH = { 'Small' => 3, 'Medium' => 8, 'Large' => 15, 'XL' => 25 }
+  SIZE_COST_HASH = { 'Small' => 3, 'Medium' => 8, 'Large' => 15, 'XL' => 25 }
 
-  WEIGHT_SIZE_HASH = { 'Small' => 1, 'Medium' => 3, 'Large' => 6, 'XL' => 10 }
+  SIZE_WEIGHT_HASH = { 'Small' => 1, 'Medium' => 3, 'Large' => 6, 'XL' => 10 }
 
   WEIGHT_COST_MULTIPLIER = 2
 
@@ -25,14 +25,15 @@ class Item
 
   def categorise(dimensions)
     max_side = dimensions.max
+
     return 'Small' if max_side < SMALL_SIZE
     return 'Medium' if max_side < MEDIUM_SIZE
     return 'Large' if max_side < LARGE_SIZE
-    return 'XL' if max_side >= LARGE_SIZE
+    'XL' if max_side >= LARGE_SIZE
   end
 
   def calculate_cost
-    COST_SIZE_HASH[@category] + additional_weight_cost
+    SIZE_COST_HASH[@category] + additional_weight_cost
   end
 
   def additional_weight_cost
@@ -41,6 +42,6 @@ class Item
   end
 
   def calculate_weight_difference
-    @weight - WEIGHT_SIZE_HASH[@category]
+    @weight - SIZE_WEIGHT_HASH[@category]
   end
 end
