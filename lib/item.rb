@@ -5,7 +5,6 @@ class Item
   end
 
   def format_string
-    'Small parcel: $3'
     "#{@category} parcel: $#{@cost}"
   end
 
