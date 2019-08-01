@@ -45,20 +45,23 @@ irb
 
 * Business logic only, programmatic API using irb.
 * Tried to follow OOP principles.
-* TDD -> red, green, refactor. Tested in isolation.
+* TDD -> red, green, refactor. Tested in isolation, 100% test coverage.
 * Refactored at other stages when I felt it was appropriate.
 * There are no rubocop offences.
 
 ## Thoughts
 
 * It's likely it would have been more useful to output an array of hashes rather than formatted strings.
-* Keyword arguments would have been a good idea for initializing Item objects. This would have improved clarity.
+* Keyword arguments would have been a good idea for initializing Item objects, it would have been clearer.
+* Could rename SIZE_COST_HASH and SIZE_WEIGHT_HASH constants to be more explicit.
 * Wondering how I can refactor this solution further.
 * There are more implementation steps (this solution completed 3), but I ran out of time.
 
 ## Further implementation steps?
 
-* 4) In the Item class, I would have compared the result of `#calculate_cost` with the expense of a heavy parcel. If the heavy parcel is cheaper, I would set cost variable to that rate, and set the category variable to `'Heavy'`.
+4) In the Item class, I would have added a method to compare the result of `#calculate_cost` with the expense of a heavy parcel. If the heavy parcel is cheaper, I would set `@cost` to that rate, and set `@category` to `'Heavy'`.
+
+5) I would add an `apply_discounts` method in the Order class which would iterate through the items array (perhaps with .each), counting the instances of small/ medium/ all parcels. With each correct multiple, I would append a discount object to `@items` with a `@cost` variable of minus the original cost. This would probably be called within the `summary_array` method.
 
 ## Specification
 
