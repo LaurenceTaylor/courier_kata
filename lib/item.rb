@@ -1,10 +1,12 @@
 class Item
+  attr_reader :cost
+  
   def initialize(height, width, depth)
     @category = categorise([height, width, depth])
     @cost = calculate_cost
   end
 
-  def format_string
+  def format_to_string
     "#{@category} parcel: $#{@cost}"
   end
 
