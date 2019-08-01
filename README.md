@@ -10,7 +10,7 @@ Creating a code library to calculate the cost of sending an order of parcels.
 
 * Enter `irb`, then `require './lib/item.rb'` followed by `require './lib/order.rb'`.
 
-* Create a new item with `item_1 = Item.new(4, 5, 6, 5)` - the arguments are its 3 dimensions followed by height.
+* Create a new item with `item_1 = Item.new(4, 5, 6, 5)` - the arguments are its 3 dimensions followed by weight.
 
 * Create a new order with `order = Order.new`. You can add to this order by adding an item, as such: `order.add(item_1)`. You can add speedy shipping by running `order.add_speedy_shipping`. View the summary array of your order by running `order.summary_array`.
 
